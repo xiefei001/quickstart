@@ -57,21 +57,23 @@ import {HeroService} from "./hero.service";
 
 
   template: `
-<h1>{{title}}</h1>
 <h2>My Heroes</h2>
   <ul class="heroes">
     <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </li>
 </ul>
+<div><span>Hero sub name: </span>{{heroSubName}}</div>
 
-<my-hero-detail [hero]="selectedHero"></my-hero-detail>
+<!--<my-hero-detail [hero]="selectedHero" [age]="heroAge" (ageChange)="heroAge=$event"></my-hero-detail>-->
+<my-hero-detail [hero]="selectedHero" [subName]="heroSubName"></my-hero-detail>
 `
 })
 export class HeroesComponent implements OnInit{
   private selectedHero:Hero;
   private heroes:Hero[];
   private title:string = 'Tour of Heroes';
+  private heroSubName:string = 'my sub name';
 
   constructor(private heroService: HeroService){
 
