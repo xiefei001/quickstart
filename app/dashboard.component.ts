@@ -13,8 +13,15 @@ import {Router} from "@angular/router";
     </div>
   </div>
 </div>
-`
+`,
+  styles:[`:host /deep/ h3 {
+  font-style: italic;
+}
+`]
+
 })
+
+
 export class DashboardComponent implements OnInit {
 
 
